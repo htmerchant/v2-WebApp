@@ -4,7 +4,7 @@ package DETECT_Tool_Types {
      * Defines the logic to map user-selected lifecycle phases to required tool categories.
      */
 
-    import ScalarValues::Boolean;
+    private import ScalarValues::Boolean;
 
     /**
      * Enumeration of standard Digital Engineering tool categories.
@@ -34,27 +34,43 @@ package DETECT_Tool_Types {
          * USER INPUTS: 6 Lifecycle Categories with Boolean selections for phases.
          */
         item inputs {
-            // Category 1: Concept & Requirements
-            attribute phase_concept_exploration : Boolean default false;
-            attribute phase_requirements_definition : Boolean default false;
+            // Category 1: Materiel Solutions Analysis Phase (MSA)
+            attribute phase_development_requirements : Boolean default false;
+            attribute phase_analysis_of_alternatives : Boolean default false;
+            attribute phase_study_contracts : Boolean default false;
 
-            // Category 2: Architecture & Design
-            attribute phase_system_architecture : Boolean default false;
-            attribute phase_detailed_engineering : Boolean default false;
+            // Category 2: Technology Maturity and Risk Reduction Phase (TMRR)
+            attribute phase_mature_rqts : Boolean default false;
+            attribute phase_proto_contr : Boolean default false;
+            attribute phase_prototyping : Boolean default false;
+            attribute phase_dev_prel_design : Boolean default false;
+            attribute phase_cdd_validation : Boolean default false;
+            attribute phase_dev_rfp_dec : Boolean default false;
+            
 
-            // Category 3: Software & Implementation
-            attribute phase_software_development : Boolean default false;
+            // Category 3: Engineering and Manufacturing Development Phase (EMD)
+            attribute phase_dev_contr : Boolean default false;
+            attribute phase_sys_design : Boolean default false;
+            attribute phase_develop_sys : Boolean default false;
+            attribute phase_dev_testing : Boolean default false;
 
-            // Category 4: Integration, Test & Evaluation
-            attribute phase_system_integration : Boolean default false;
-            attribute phase_test_and_evaluation : Boolean default false;
+            // Category 4: Production and Deployment Phase (P&D)
+            attribute phase_prod_contr : Boolean default false;
+            attribute phase_lr_init_prod : Boolean default false;
+            attribute phase_operational_test : Boolean default false;
+            attribute phase_frp_dec : Boolean default false;
+            attribute phase_fr : Boolean default false;
+            attribute phase_prod_development : Boolean default false;
 
-            // Category 5: Manufacturing & Production
-            attribute phase_manufacturing_planning : Boolean default false;
+            // Category 5: Operation and Support Phase (O&S)
+            attribute phase_sustainment_contr : Boolean default false;
+            attribute phase_sustain sys : Boolean default false;
 
-            // Category 6: Operations & Sustainment
-            attribute phase_operations_monitoring : Boolean default false;
-            attribute phase_maintenance_and_sustainment : Boolean default false;
+            // Category 6: All Phases
+            attribute phase_strategies : Boolean default false;
+            attribute phase_tr : Boolean default false;
+            attribute phase_cost_estimation_and_affordability : Boolean default false;
+            attribute phase_program_management : Boolean default false;
         }
 
         /**
@@ -62,7 +78,7 @@ package DETECT_Tool_Types {
          * These derived attributes check the inputs and output sets of Tool_Type_e.
          */
         
-        // --- Category 1 Outputs ---
+        // ---  Category 1 Outputs ---
         derived attribute :>> concept_phase_tools : {Tool_Type_e[*]} =
             if inputs.phase_concept_exploration then {Tool_Type_e::'MBSE'} else {};
             
