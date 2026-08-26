@@ -7,7 +7,7 @@ package DETECT_Input_Tool_Types {
 
     private import DETECT_Tool_Types::*; 
 
-    part ecosystem_tool_profile : DETECT_Tool_Types::Tool_Profile { 
+    part ecosystem_tool_profile : Tool_Profile { 
         
         item :>> inputs {
             // Category 1: Materiel Solutions Analysis Phase (MSA)
