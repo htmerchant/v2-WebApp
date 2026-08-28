@@ -1,0 +1,7 @@
+{
+    "projectName": "DETECT_Model",
+    "sourcePaths": [
+        "."
+    ],
+    "useStdLib": true
+}
