@@ -112,34 +112,47 @@ package DETECT_Tool_Types {
          */
         
         /* ---  Category 1 Outputs --- */
-        derived attribute :>> concept_phase_tools : {Tool_Type_e[*]} =
-            if inputs.phase_concept_exploration then {Tool_Type_e::'1 Physical System Representation'} else {};
+        /*
+         * Note on `if`: the two `if` forms are not interchangeable.
+         *
+         * `if cond ? valueA else valueB` is the conditional *expression*
+         * operator. It is what belongs here: it evaluates to a value, so it can
+         * appear on the right-hand side of `=` in a feature value. Both branches
+         * are required; `else` cannot be omitted.
+         *
+         * `if cond then targetAction;` is *control flow*, not an expression. It
+         * is a guarded succession inside an action body: it does not produce a
+         * value and cannot be used as a feature value. Writing
+         * `= if cond then x else y` is a syntax error.
+         */
+        derived attribute concept_phase_tools : Tool_Type_e[*] =
+            if inputs.phase_concept_exploration ? Tool_Type_e::'1 Physical System Representation' else null;
             
-        derived attribute :>> requirements_phase_tools : {Tool_Type_e[*]} =
-            if inputs.phase_requirements_definition then {Tool_Type_e::'Requirements Management (RM)', Tool_Type_e::'MBSE'} else {};
+        // derived attribute :>> requirements_phase_tools : {Tool_Type_e[*]} =
+        //     if inputs.phase_requirements_definition then {Tool_Type_e::'Requirements Management (RM)', Tool_Type_e::'MBSE'} else {};
 
-        // --- Category 2 Outputs ---
-        derived attribute :>> architecture_phase_tools : {Tool_Type_e[*]} =
-            if inputs.phase_system_architecture then {Tool_Type_e::'MBSE', Tool_Type_e::'PLM'} else {};
+        // // --- Category 2 Outputs ---
+        // derived attribute :>> architecture_phase_tools : {Tool_Type_e[*]} =
+        //     if inputs.phase_system_architecture then {Tool_Type_e::'MBSE', Tool_Type_e::'PLM'} else {};
             
-        derived attribute :>> detailed_engineering_tools : {Tool_Type_e[*]} =
-            if inputs.phase_detailed_engineering then {Tool_Type_e::'Mechanical CAD (MCAD)', Tool_Type_e::'Electrical CAD (ECAD)', Tool_Type_e::'Computer-Aided Engineering (CAE) / Simulation', Tool_Type_e::'PLM'} else {};
+        // derived attribute :>> detailed_engineering_tools : {Tool_Type_e[*]} =
+        //     if inputs.phase_detailed_engineering then {Tool_Type_e::'Mechanical CAD (MCAD)', Tool_Type_e::'Electrical CAD (ECAD)', Tool_Type_e::'Computer-Aided Engineering (CAE) / Simulation', Tool_Type_e::'PLM'} else {};
 
-        // --- Category 3 Outputs ---
-        derived attribute :>> software_development_tools : {Tool_Type_e[*]} =
-            if inputs.phase_software_development then {Tool_Type_e::'Software Integrated Development Environment (IDE)', Tool_Type_e::'Application Lifecycle Management (ALM)'} else {};
+        // // --- Category 3 Outputs ---
+        // derived attribute :>> software_development_tools : {Tool_Type_e[*]} =
+        //     if inputs.phase_software_development then {Tool_Type_e::'Software Integrated Development Environment (IDE)', Tool_Type_e::'Application Lifecycle Management (ALM)'} else {};
 
-        // --- Category 4 Outputs ---
-        derived attribute :>> integration_and_test_tools : {Tool_Type_e[*]} =
-            if inputs.phase_system_integration or inputs.phase_test_and_evaluation then {Tool_Type_e::'Test & Defect Management', Tool_Type_e::'Application Lifecycle Management (ALM)'} else {};
+        // // --- Category 4 Outputs ---
+        // derived attribute :>> integration_and_test_tools : {Tool_Type_e[*]} =
+        //     if inputs.phase_system_integration or inputs.phase_test_and_evaluation then {Tool_Type_e::'Test & Defect Management', Tool_Type_e::'Application Lifecycle Management (ALM)'} else {};
 
-        // --- Category 5 Outputs ---
-        derived attribute :>> manufacturing_tools : {Tool_Type_e[*]} =
-            if inputs.phase_manufacturing_planning then {Tool_Type_e::'Manufacturing Execution System (MES)', Tool_Type_e::'PLM'} else {};
+        // // --- Category 5 Outputs ---
+        // derived attribute :>> manufacturing_tools : {Tool_Type_e[*]} =
+        //     if inputs.phase_manufacturing_planning then {Tool_Type_e::'Manufacturing Execution System (MES)', Tool_Type_e::'PLM'} else {};
 
-        // --- Category 6 Outputs ---
-        derived attribute :>> ops_and_sustainment_tools : {Tool_Type_e[*]} =
-            if inputs.phase_operations_monitoring then {Tool_Type_e::'Digital Twin / IoT Monitoring'} else {} +
-            if inputs.phase_maintenance_and_sustainment then {Tool_Type_e::'Tech Data Package (TDP) Publishing', Tool_Type_e::'PLM'} else {};
+        // // --- Category 6 Outputs ---
+        // derived attribute :>> ops_and_sustainment_tools : {Tool_Type_e[*]} =
+        //     if inputs.phase_operations_monitoring then {Tool_Type_e::'Digital Twin / IoT Monitoring'} else {} +
+        //     if inputs.phase_maintenance_and_sustainment then {Tool_Type_e::'Tech Data Package (TDP) Publishing', Tool_Type_e::'PLM'} else {};
     }
 }
