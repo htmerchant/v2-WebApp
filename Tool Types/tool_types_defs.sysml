@@ -112,9 +112,9 @@ package DETECT_Tool_Types {
          */
     
         /* ---  Category 1 Outputs --- */
-        //derived attribute :>> concept_phase_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_concept_exploration then {Tool_Type_e::'1 Physical System Representation'} else {};
-            
+        derived attribute phase_development_requirements : Tool_Type_e[*] =
+            if inputs.phase_development_requirements ? Tool_Type_e::'1 Physical System Representation' else null;            
+
         //derived attribute :>> requirements_phase_tools : {Tool_Type_e[*]} =
         //    if inputs.phase_requirements_definition then {Tool_Type_e::'Requirements Management (RM)', Tool_Type_e::'MBSE'} else {};
 
