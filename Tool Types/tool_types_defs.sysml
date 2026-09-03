@@ -29,7 +29,7 @@ package DETECT_Tool_Types {
         '4 Computer Science and Software Engineering Tools';
         '4.1 Integrated Development Environments (IDEs)';
         '4.2 Version Control Systems';
-        '4.3 Continuous Integration/Continuous Deployment (CI/CD):';
+        '4.3 Continuous Integration/Continuous Deployment (CI/CD)';
         '4.4 Testing Frameworks';
         '5 Data Integration';
         '5.1 Data Analytics and Visualization';
@@ -179,32 +179,278 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        //derived attribute :>> requirements_phase_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_requirements_definition then {Tool_Type_e::'Requirements Management (RM)', Tool_Type_e::'MBSE'} else {};
+        /* ---  Category 2 Outputs --- */
+        derived attribute mature_requirements_tools : Tool_Type_e[*] =
+            if inputs.phase_mature_rqts ?
+            (
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools', 
+                Tool_Type_e::'3.3 Shared Architecture Tools',
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
 
-        // --- Category 2 Outputs ---
-        //derived attribute :>> architecture_phase_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_system_architecture then {Tool_Type_e::'MBSE', Tool_Type_e::'PLM'} else {};
-            
-        //derived attribute :>> detailed_engineering_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_detailed_engineering then {Tool_Type_e::'Mechanical CAD (MCAD)', Tool_Type_e::'Electrical CAD (ECAD)', Tool_Type_e::'Computer-Aided Engineering (CAE) / Simulation', Tool_Type_e::'PLM'} else {};
+        derived attribute prototyping_control_tools : Tool_Type_e[*] =
+            if inputs.phase_proto_contr ?
+            (
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
 
-        // --- Category 3 Outputs ---
-        //derived attribute :>> software_development_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_software_development then {Tool_Type_e::'Software Integrated Development Environment (IDE)', Tool_Type_e::'Application Lifecycle Management (ALM)'} else {};
+        derived attribute prototyping_tools : Tool_Type_e[*] =
+            if inputs.phase_prototyping ?
+            (
+                Tool_Type_e::'1.1 Computer Aided Design (CAD)',
+                Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
+                Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
+                Tool_Type_e::'2.3 Finite Element Analysis (FEA)',
+                Tool_Type_e::'2.4 Electromagnetic (EM)',
+                Tool_Type_e::'2.5 Dynamic Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'2.7 Simulation Managers',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools',
+                Tool_Type_e::'3.3 Shared Architecture Tools',
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'6.1 Physical Product Definition and Representation',
+                Tool_Type_e::'6.2 Process Modeling & Simulation',
+                Tool_Type_e::'6.3 Manufacturing Execution Software (MES)',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
 
-        // --- Category 4 Outputs ---
-        //derived attribute :>> integration_and_test_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_system_integration or inputs.phase_test_and_evaluation then {Tool_Type_e::'Test & Defect Management', Tool_Type_e::'Application Lifecycle Management (ALM)'} else {};
+        derived attribute preliminary_design_development_tools : Tool_Type_e[*] =
+            if inputs.phase_dev_prel_design ?
+            (
+                Tool_Type_e::'1.1 Computer Aided Design (CAD)',
+                Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
+                Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
+                Tool_Type_e::'2.3 Finite Element Analysis (FEA)',
+                Tool_Type_e::'2.4 Electromagnetic (EM)',
+                Tool_Type_e::'2.5 Dynamic Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'2.7 Simulation Managers',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools',
+                Tool_Type_e::'3.3 Shared Architecture Tools',
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'6.1 Physical Product Definition and Representation',
+                Tool_Type_e::'6.2 Process Modeling & Simulation',
+                Tool_Type_e::'6.3 Manufacturing Execution Software (MES)',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
 
-        // --- Category 5 Outputs ---
-        //derived attribute :>> manufacturing_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_manufacturing_planning then {Tool_Type_e::'Manufacturing Execution System (MES)', Tool_Type_e::'PLM'} else {};
+        derived attribute CDD_validation_tools : Tool_Type_e[*] =
+            if inputs.phase_cdd_validation ?
+            (
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
 
-        // --- Category 6 Outputs ---
-        //derived attribute :>> ops_and_sustainment_tools : {Tool_Type_e[*]} =
-        //    if inputs.phase_operations_monitoring then {Tool_Type_e::'Digital Twin / IoT Monitoring'} else {} +
-        //    if inputs.phase_maintenance_and_sustainment then {Tool_Type_e::'Tech Data Package (TDP) Publishing', Tool_Type_e::'PLM'} else {};
+        derived attribute RFP_release_decision_tools : Tool_Type_e[*] =
+            if inputs.phase_dev_rfp_dec ?
+            (
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
+
+        /* --- Category 3 Outputs --- */
+        derived attribute development_control_tools : Tool_Type_e[*] =
+            if inputs.phase_dev_contr ?
+            (
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
+
+        derived attribute system_design_tools : Tool_Type_e[*] =
+            if inputs.phase_sys_design ?
+            (
+                Tool_Type_e::'1.1 Computer Aided Design (CAD)',
+                Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
+                Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
+                Tool_Type_e::'2.3 Finite Element Analysis (FEA)',
+                Tool_Type_e::'2.4 Electromagnetic (EM)',
+                Tool_Type_e::'2.5 Dynamic Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'2.7 Simulation Managers',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools',
+                Tool_Type_e::'3.3 Shared Architecture Tools',
+                Tool_Type_e::'4.1 Integrated Development Environments (IDEs)',
+                Tool_Type_e::'4.2 Version Control Systems',
+                Tool_Type_e::'4.3 Continuous Integration/Continuous Deployment (CI/CD)',
+                Tool_Type_e::'4.4 Testing Frameworks',
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'6.1 Physical Product Definition and Representation',
+                Tool_Type_e::'6.2 Process Modeling & Simulation',
+                Tool_Type_e::'6.3 Manufacturing Execution Software (MES)',
+                Tool_Type_e::'7.1 Supply Chain Planning & Optimization',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
+
+        derived attribute system_development_tools : Tool_Type_e[*] =
+            if inputs.phase_develop_sys ?
+            (
+                Tool_Type_e::'1.1 Computer Aided Design (CAD)',
+                Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
+                Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
+                Tool_Type_e::'2.3 Finite Element Analysis (FEA)',
+                Tool_Type_e::'2.4 Electromagnetic (EM)',
+                Tool_Type_e::'2.5 Dynamic Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'2.7 Simulation Managers',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools',
+                Tool_Type_e::'3.3 Shared Architecture Tools',
+                Tool_Type_e::'4.1 Integrated Development Environments (IDEs)',
+                Tool_Type_e::'4.2 Version Control Systems',
+                Tool_Type_e::'4.3 Continuous Integration/Continuous Deployment (CI/CD)',
+                Tool_Type_e::'4.4 Testing Frameworks',
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'6.1 Physical Product Definition and Representation',
+                Tool_Type_e::'6.2 Process Modeling & Simulation',
+                Tool_Type_e::'6.3 Manufacturing Execution Software (MES)',
+                Tool_Type_e::'7.1 Supply Chain Planning & Optimization',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
+
+        derived attribute developmental_testing_tools : Tool_Type_e[*] =
+            if inputs.phase_dev_testing ?
+            (
+                Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
+                Tool_Type_e::'2.3 Finite Element Analysis (FEA)',
+                Tool_Type_e::'2.4 Electromagnetic (EM)',
+                Tool_Type_e::'2.5 Dynamic Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'2.7 Simulation Managers',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools',
+                Tool_Type_e::'3.3 Shared Architecture Tools',
+                Tool_Type_e::'4.1 Integrated Development Environments (IDEs)',
+                Tool_Type_e::'4.2 Version Control Systems',
+                Tool_Type_e::'4.3 Continuous Integration/Continuous Deployment (CI/CD)',
+                Tool_Type_e::'4.4 Testing Frameworks',
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
+
     }
     
 }
