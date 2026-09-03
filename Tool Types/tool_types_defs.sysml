@@ -110,10 +110,74 @@ package DETECT_Tool_Types {
          * These derived attributes check the inputs and output sets of Tool_Type_e.
          * if user inputs A, then return the tool type corresponding to A (I think)
          */
-    
+
+        //derived attribute lifecycle_phase : Tool_Type_e[*] =
+        //    if inputs.phase ?
+        //    (
+        //        Tool_Type_e::'#',
+        //    )
+        //    else null;
+
         /* ---  Category 1 Outputs --- */
-        derived attribute development_requirements : Tool_Type_e[*] =
-         if inputs.phase_development_requirements ? Tool_Type_e::'1 Physical System Representation' else null;            
+        derived attribute requirements_development_tools : Tool_Type_e[*] =
+            if inputs.phase_development_requirements ?
+            (
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools',
+                Tool_Type_e::'3.3 Shared Architecture Tools',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
+
+        derived attribute alternative_analysis_tools : Tool_Type_e[*] =
+            if inputs.phase_analysis_of_alternatives ?
+            (
+                Tool_Type_e::'2.1 Low Fidelity Simulations',
+                Tool_Type_e::'2.6 Mission Models',
+                Tool_Type_e::'3.1 Requirements Management Tools',
+                Tool_Type_e::'3.2 Architecture Tools',                
+                Tool_Type_e::'3.3 Shared Architecture Tools',      
+                Tool_Type_e::'5.1 Data Analytics and Visualization',
+                Tool_Type_e::'5.2 Data Integration',
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
+
+        derived attribute contract_study_tools : Tool_Type_e[*] =
+            if inputs.phase_study_contracts ?
+            (
+                Tool_Type_e::'5.3 Data Persistence',
+                Tool_Type_e::'5.4 Digital Thread',
+                Tool_Type_e::'8.1 Word Processing and Document Collaboration',
+                Tool_Type_e::'8.2 Presentation Software',
+                Tool_Type_e::'8.3 Spreadsheets',
+                Tool_Type_e::'8.4 Email and Communication Platforms',
+                Tool_Type_e::'8.5 Task Management and Project Planning',
+                Tool_Type_e::'8.6 Shared Drives and Cloud Storage',
+                Tool_Type_e::'9 Host Platform',
+                Tool_Type_e::'10 Cybersecurity',
+            )
+            else null;
 
         //derived attribute :>> requirements_phase_tools : {Tool_Type_e[*]} =
         //    if inputs.phase_requirements_definition then {Tool_Type_e::'Requirements Management (RM)', Tool_Type_e::'MBSE'} else {};
