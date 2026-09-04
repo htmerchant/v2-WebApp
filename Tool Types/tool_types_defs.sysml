@@ -107,9 +107,9 @@ package DETECT_Tool_Types {
 
         /* --- MODEL OUTPUTS --- */
 
-        /* --- Category 1 Outputs --- */
+        /* --- 1 MSA - Materiel Solutions Analysis Phase --- */
 
-        derived attribute requirements_development_tools : Tool_Type_e[*] =
+        derived attribute development_requirements_tools : Tool_Type_e[*] =
             if inputs.phase_development_requirements ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -130,7 +130,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute alternative_analysis_tools : Tool_Type_e[*] =
+        derived attribute analysis_of_alternatives_tools : Tool_Type_e[*] =
             if inputs.phase_analysis_of_alternatives ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -153,7 +153,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute contract_study_tools : Tool_Type_e[*] =
+        derived attribute study_contracts_tools : Tool_Type_e[*] =
             if inputs.phase_study_contracts ?
             (
                 Tool_Type_e::'5.3 Data Persistence',
@@ -169,9 +169,9 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        /* --- Category 2 Outputs --- */
+        /* --- 2 TMRR - Technology Maturity and Risk Reduction Phase --- */
 
-        derived attribute mature_requirements_tools : Tool_Type_e[*] =
+        derived attribute mature_rqts_tools : Tool_Type_e[*] =
             if inputs.phase_mature_rqts ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -194,7 +194,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute prototyping_contract_tools : Tool_Type_e[*] =
+        derived attribute proto_contr_tools : Tool_Type_e[*] =
             if inputs.phase_proto_contr ?
             (
                 Tool_Type_e::'5.3 Data Persistence',
@@ -244,7 +244,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute preliminary_design_development_tools : Tool_Type_e[*] =
+        derived attribute dev_prel_design_tools : Tool_Type_e[*] =
             if inputs.phase_dev_prel_design ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
@@ -278,7 +278,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute CDD_validation_tools : Tool_Type_e[*] =
+        derived attribute cdd_validation_tools : Tool_Type_e[*] =
             if inputs.phase_cdd_validation ?
             (
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
@@ -296,7 +296,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute RFP_release_decision_tools : Tool_Type_e[*] =
+        derived attribute dev_rfp_dec_tools : Tool_Type_e[*] =
             if inputs.phase_dev_rfp_dec ?
             (
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
@@ -314,9 +314,9 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        /* --- Category 3 Outputs --- */
+        /* --- 3 EMD - Engineering and Manufacturing Development Phase --- */
 
-        derived attribute development_contract_tools : Tool_Type_e[*] =
+        derived attribute dev_contr_tools : Tool_Type_e[*] =
             if inputs.phase_dev_contr ?
             (
                 Tool_Type_e::'5.3 Data Persistence',
@@ -332,7 +332,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute system_design_tools : Tool_Type_e[*] =
+        derived attribute sys_design_tools : Tool_Type_e[*] =
             if inputs.phase_sys_design ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
@@ -371,7 +371,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute system_development_tools : Tool_Type_e[*] =
+        derived attribute develop_sys_tools : Tool_Type_e[*] =
             if inputs.phase_develop_sys ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
@@ -410,7 +410,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute developmental_testing_tools : Tool_Type_e[*] =
+        derived attribute dev_testing_tools : Tool_Type_e[*] =
             if inputs.phase_dev_testing ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -443,9 +443,9 @@ package DETECT_Tool_Types {
             )
             else null;
         
-        /* --- Category 4 Outputs --- */
+        /* --- 4 P&D - Production and Deployment Phase --- */
 
-        derived attribute production_contract_tools : Tool_Type_e[*] =
+        derived attribute prod_contr_tools : Tool_Type_e[*] =
             if inputs.phase_prod_contr ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -462,7 +462,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute low_rate_initial_production_tools : Tool_Type_e[*] =
+        derived attribute lr_init_prod_tools : Tool_Type_e[*] =
             if inputs.phase_lr_init_prod ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -516,7 +516,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute full_rate_production_decision_tools : Tool_Type_e[*] =
+        derived attribute frp_dec_tools : Tool_Type_e[*] =
             if inputs.phase_frp_dec ?
             (
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
@@ -534,7 +534,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute full_rate_production_tools : Tool_Type_e[*] =
+        derived attribute fr_tools : Tool_Type_e[*] =
             if inputs.phase_fr ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -559,7 +559,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute product_deployment_tools : Tool_Type_e[*] =
+        derived attribute prod_deployment_tools : Tool_Type_e[*] =
             if inputs.phase_prod_deployment ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -585,9 +585,9 @@ package DETECT_Tool_Types {
             )
             else null;  
 
-        /* --- Category 5 Outputs --- */
+        /* --- 5 O&S - Operations and Support Phase --- */
 
-        derived attribute sustainment_contract_tools : Tool_Type_e[*] =
+        derived attribute sustainment_contr_tools : Tool_Type_e[*] =
             if inputs.phase_sustainment_contr ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -604,7 +604,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute system_sustainment_tools : Tool_Type_e[*] =
+        derived attribute sustain_sys_tools : Tool_Type_e[*] =
             if inputs.phase_sustain_sys ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -627,9 +627,9 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        /* --- Category 6 Outputs --- */
+        /* --- 6 All Phases --- */
 
-        derived attribute strategy_tools : Tool_Type_e[*] =
+        derived attribute strategies_tools : Tool_Type_e[*] =
             if inputs.phase_strategies ?
             (
                 Tool_Type_e::'3.1 Requirements Management Tools',
@@ -644,7 +644,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute technical_review_tools : Tool_Type_e[*] =
+        derived attribute tr_tools : Tool_Type_e[*] =
             if inputs.phase_tr ?
             (
                 Tool_Type_e::'3.1 Requirements Management Tools',
@@ -659,7 +659,7 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        derived attribute CEA_tools : Tool_Type_e[*] =
+        derived attribute cost_estimation_and_affordability_tools : Tool_Type_e[*] =
             if inputs.phase_cost_estimation_and_affordability ?
             (
                 Tool_Type_e::'3.1 Requirements Management Tools',
