@@ -35,7 +35,7 @@ package DETECT_Input_Tool_Types {
             attribute :>> phase_operational_test = true;
             attribute :>> phase_frp_dec = true;
             attribute :>> phase_fr = true;
-            attribute :>> phase_prod_development = true;
+            attribute :>> phase_prod_deployment = true;
 
             // Category 5: Operation and Support Phase (O&S)
             attribute :>> phase_sustainment_contr = true;
