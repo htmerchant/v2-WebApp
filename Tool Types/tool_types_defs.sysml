@@ -105,20 +105,10 @@ package DETECT_Tool_Types {
             attribute phase_program_management : Boolean default false;
         }
 
-        /**
-         * MODEL OUTPUTS: Recommended Tools organized by Lifecycle Phase.
-         * These derived attributes check the inputs and output sets of Tool_Type_e.
-         * if user inputs A, then return the tool type corresponding to A (I think)
-         */
+        /* --- MODEL OUTPUTS --- */
 
-        //derived attribute lifecycle_phase : Tool_Type_e[*] =
-        //    if inputs.phase ?
-        //    (
-        //        Tool_Type_e::'#',
-        //    )
-        //    else null;
+        /* --- Category 1 Outputs --- */
 
-        /* ---  Category 1 Outputs --- */
         derived attribute requirements_development_tools : Tool_Type_e[*] =
             if inputs.phase_development_requirements ?
             (
@@ -179,7 +169,8 @@ package DETECT_Tool_Types {
             )
             else null;
 
-        /* ---  Category 2 Outputs --- */
+        /* --- Category 2 Outputs --- */
+
         derived attribute mature_requirements_tools : Tool_Type_e[*] =
             if inputs.phase_mature_rqts ?
             (
@@ -324,6 +315,7 @@ package DETECT_Tool_Types {
             else null;
 
         /* --- Category 3 Outputs --- */
+
         derived attribute development_contract_tools : Tool_Type_e[*] =
             if inputs.phase_dev_contr ?
             (
@@ -452,6 +444,7 @@ package DETECT_Tool_Types {
             else null;
         
         /* --- Category 4 Outputs --- */
+
         derived attribute production_contract_tools : Tool_Type_e[*] =
             if inputs.phase_prod_contr ?
             (
