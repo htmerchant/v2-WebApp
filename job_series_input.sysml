@@ -11,25 +11,25 @@ package DETECT_Input_Job_Series {
         
         item :>> inputs {
             // Category 1: Engineering & Scientific
-            attribute :>> role_general_engineering = true;
-            attribute :>> role_safety_engineering = true;
-            attribute :>> role_materials_engineering = true;
-            attribute :>> role_mechanical_engineering = true;
-            attribute :>> role_nuclear_engineering = true;
-            attribute :>> role_electrical_engineering = true;
-            attribute :>> role_computer_engineering = true;
-            attribute :>> role_aerospace_engineering = true;
-            attribute :>> role_chemical_engineering = true;
-            attribute :>> role_industrial_engineering = true;
+            attribute :>> role_general_engineering = false;
+            attribute :>> role_safety_engineering = false;
+            attribute :>> role_materials_engineering = false;
+            attribute :>> role_mechanical_engineering = false;
+            attribute :>> role_nuclear_engineering = false;
+            attribute :>> role_electrical_engineering = false;
+            attribute :>> role_computer_engineering = false;
+            attribute :>> role_aerospace_engineering = false;
+            attribute :>> role_chemical_engineering = false;
+            attribute :>> role_industrial_engineering = false;
 
             // Category 2: Program & Business Management
-            attribute :>> role_physics = true;
-            attribute :>> role_chemistry = true;
+            attribute :>> role_physics = false;
+            attribute :>> role_chemistry = false;
 
             // Category 3: Support & Operations
-            attribute :>> role_general_mathematics_and_statistics = true;
-            attribute :>> role_operations_research = true;
-            attribute :>> role_computer_science = true;
+            attribute :>> role_general_mathematics_and_statistics = false;
+            attribute :>> role_operations_research = false;
+            attribute :>> role_computer_science = false;
         }
     }
 }
