@@ -206,13 +206,13 @@ with tab_uc2:
             triggered_lifecycle_tools.update(lifecycle_mappings.get(phase, []))
 
 # ------------------------------------------------------------------------------
-# TAB 3: UC3 JOB SERIES MAPPING
+# TAB 3: UC3 JOB SERIES MAPPING (Grouped by Occupational Series)
 # ------------------------------------------------------------------------------
 with tab_uc3:
     st.subheader("UC3: Identify Tools by Job Series")
     
     if not job_series_inputs:
-        st.warning("No job series parsed. Please ensure `job_series_defs.sysml` is available in your repository.")
+        st.warning("No job series parsed. Please ensure `job_series_defs1.txt` is available.")
     else:
         st.write(f"Selecting from all **{len(job_series_inputs)}** occupational series:")
 
@@ -232,20 +232,35 @@ with tab_uc3:
                 if st.checkbox(format_display_name(role), value=default_val, key=f"js_{role}"):
                     selected_roles.append(role)
 
+        st.divider()
+        st.write("### 📋 Recommended Tool Types Grouped by Job Series")
+
         if selected_roles:
+            # Option A: Display as an Interactive Structured Table
             role_table_rows = []
             for role in selected_roles:
                 tools = job_series_mappings.get(role, [])
                 role_table_rows.append({
                     "Job Series / Role": format_display_name(role),
                     "Tool Count": len(tools),
-                    "Required Tool Categories": ", ".join(tools)
+                    "Required Tool Categories": ", ".join(tools) if tools else "None specified"
                 })
-            st.divider()
-            st.write("#### Recommended Tools per Job Series Table")
+            
             st.dataframe(pd.DataFrame(role_table_rows), use_container_width=True)
+
+            # Option B: Clean Expandable View for Each Job Series
+            with st.expander("🔍 View Detailed Tool Breakdown per Job Series", expanded=False):
+                for role in selected_roles:
+                    tools = job_series_mappings.get(role, [])
+                    st.markdown(f"#### 👤 {format_display_name(role)}")
+                    if tools:
+                        for tool in tools:
+                            st.markdown(f"- {tool}")
+                    else:
+                        st.write("*No specific tools mapped to this role.*")
+                    st.write("")
         else:
-            st.info("No job series selected.")
+            st.info("No job series selected. Please check at least one role above to see results.")
 
 # ------------------------------------------------------------------------------
 # TAB 4: SUMMARY & EXPORT
