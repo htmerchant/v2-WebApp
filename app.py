@@ -84,8 +84,8 @@ def format_display_name(raw_name: str) -> str:
     return raw_name.replace("phase_", "").replace("role_", "").replace("_", " ").title()
 
 # Load definition files
-lifecycle_raw = fetch_file_content("lifecycle_phase_defs1.txt") or fetch_file_content("lifecycle_phase_defs1.sysml")
-job_series_raw = fetch_file_content("job_series_defs1.txt") or fetch_file_content("job_series_defs1.sysml")
+lifecycle_raw = fetch_file_content("lifecycle_phase_defs.sysml") or fetch_file_content("lifecycle_phase_defs.sysml")
+job_series_raw = fetch_file_content("job_series_defs.sysml") or fetch_file_content("job_series_defs.sysml")
 
 lifecycle_inputs, lifecycle_mappings = parse_sysml_definitions(lifecycle_raw)
 job_series_inputs, job_series_mappings = parse_sysml_definitions(job_series_raw)
@@ -149,7 +149,7 @@ with tab_uc2:
     st.subheader("UC2: Identify Tool Types by Lifecycle Phase")
     
     if not lifecycle_inputs:
-        st.warning("No lifecycle phases parsed. Please ensure `lifecycle_phase_defs1.txt` is available in your repository.")
+        st.warning("No lifecycle phases parsed. Please ensure `lifecycle_phase_defs.sysml` is available in your repository.")
     else:
         st.write(f"Selecting from all **{len(lifecycle_inputs)}** lifecycle phases:")
         
@@ -187,7 +187,7 @@ with tab_uc3:
     st.subheader("UC3: Identify Tools by Job Series")
     
     if not job_series_inputs:
-        st.warning("No job series parsed. Please ensure `job_series_defs1.txt` is available in your repository.")
+        st.warning("No job series parsed. Please ensure `job_series_defs.sysml` is available in your repository.")
     else:
         st.write(f"Selecting from all **{len(job_series_inputs)}** occupational series:")
 
