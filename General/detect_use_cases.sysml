@@ -52,7 +52,7 @@ package DETECT_Use_Cases {
              */
         }
 
-        attribute redefines uc_status = DETECT_Lifecycle_Phases::status_e_lcp::Red; // not implemented
+        attribute redefines uc_status = DETECT_Lifecycle_Phases::status_e_lcp::Green; // implemented
     }
 
     use case <UC3> 'Determine DE ecosystem Tools Based on Job Series'
@@ -68,6 +68,6 @@ package DETECT_Use_Cases {
              */
         }
 
-        attribute redefines uc_status = DETECT_Job_Series::status_e_jobs::Red; // not implemented
+        attribute redefines uc_status = DETECT_Job_Series::status_e_jobs::Green; // implemented
     }
 }
