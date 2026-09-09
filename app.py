@@ -165,7 +165,7 @@ with tab_uc2:
         cols = st.columns(num_cols)
         
         for idx, phase in enumerate(lifecycle_inputs):
-            default_val = False if clear_all_lc else True
+            default_val = True if clear_all_lc else False
             with cols[idx % num_cols]:
                 if st.checkbox(format_display_name(phase), value=default_val, key=f"lc_{phase}"):
                     selected_phases.append(phase)
@@ -227,7 +227,7 @@ with tab_uc3:
         cols_roles = st.columns(num_cols_roles)
         
         for idx, role in enumerate(job_series_inputs):
-            default_val = False if clear_all_js else True
+            default_val = True if clear_all_js else False
             with cols_roles[idx % num_cols_roles]:
                 if st.checkbox(format_display_name(role), value=default_val, key=f"js_{role}"):
                     selected_roles.append(role)
