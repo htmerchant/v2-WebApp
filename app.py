@@ -144,13 +144,13 @@ with tab_uc1:
     st.success(f"### Sizing Classification: **{size_badge}** (Calculated Score: {total_score} / 30)")
 
 # ------------------------------------------------------------------------------
-# TAB 2: UC2 LIFECYCLE TOOL TYPES
+# TAB 2: UC2 LIFECYCLE TOOL TYPES (Grouped by Lifecycle Phase)
 # ------------------------------------------------------------------------------
 with tab_uc2:
     st.subheader("UC2: Identify Tool Types by Lifecycle Phase")
     
     if not lifecycle_inputs:
-        st.warning("No lifecycle phases parsed. Please ensure `lifecycle_phase_defs.sysml` is available in your repository.")
+        st.warning("No lifecycle phases parsed. Please ensure `lifecycle_phase_defs1.txt` is available.")
     else:
         st.write(f"Selecting from all **{len(lifecycle_inputs)}** lifecycle phases:")
         
@@ -170,16 +170,40 @@ with tab_uc2:
                 if st.checkbox(format_display_name(phase), value=default_val, key=f"lc_{phase}"):
                     selected_phases.append(phase)
         
+        st.divider()
+        st.write("### 📋 Recommended Tool Types Grouped by Lifecycle Phase")
+        
+        if selected_phases:
+            # Option A: Display as an Interactive Structured Table
+            phase_table_rows = []
+            for phase in selected_phases:
+                tools = lifecycle_mappings.get(phase, [])
+                phase_table_rows.append({
+                    "Lifecycle Phase": format_display_name(phase),
+                    "Tool Count": len(tools),
+                    "Recommended Tool Categories": ", ".join(tools) if tools else "None specified"
+                })
+            
+            st.dataframe(pd.DataFrame(phase_table_rows), use_container_width=True)
+            
+            # Option B: Clean Expandable View for Each Phase
+            with st.expander("🔍 View Detailed Tool Breakdown per Phase", expanded=False):
+                for phase in selected_phases:
+                    tools = lifecycle_mappings.get(phase, [])
+                    st.markdown(f"#### 🔹 {format_display_name(phase)}")
+                    if tools:
+                        for tool in tools:
+                            st.markdown(f"- {tool}")
+                    else:
+                        st.write("*No specific tools required for this phase.*")
+                    st.write("")
+        else:
+            st.info("No lifecycle phases selected. Please check at least one phase above to see results.")
+
+        # Aggregate all unique lifecycle tools for summary export
         triggered_lifecycle_tools = set()
         for phase in selected_phases:
             triggered_lifecycle_tools.update(lifecycle_mappings.get(phase, []))
-            
-        st.divider()
-        st.write(f"#### Active Recommended Tool Categories ({len(triggered_lifecycle_tools)} categories detected):")
-        if triggered_lifecycle_tools:
-            st.json(sorted(list(triggered_lifecycle_tools)))
-        else:
-            st.info("No lifecycle phases selected.")
 
 # ------------------------------------------------------------------------------
 # TAB 3: UC3 JOB SERIES MAPPING
