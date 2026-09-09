@@ -17,7 +17,8 @@ st.set_page_config(
 st.title("🛡️ DETECT v2: Digital Engineering Ecosystem Model")
 st.markdown("""
 Interactive web application for the **DETECT v2 (Digital Engineering Ecosystem Sizing & Tailoring)** model. 
-This tool dynamically evaluates **UC1 (Sizing)**, **UC2 (Lifecycle Tool Types)**, and **UC3 (Job Series Mapping)** based on your SysML v2 definitions from [htmerchant/v2-WebApp](https://github.com/htmerchant/v2-WebApp).
+This tool dynamically evaluates **Use Case 1 (Sizing)**, **Use Case 2 (Lifecycle Tool Types)**, and **Use Case 3 (Job Series Mapping)** based on your SysML v2 definitions from [htmerchant/v2-WebApp](https://github.com/htmerchant/v2-WebApp).
+This is an active beta-testing program while the sysmlv2 model is still in development.
 """)
 st.divider()
 
