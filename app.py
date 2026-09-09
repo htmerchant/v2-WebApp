@@ -95,8 +95,8 @@ job_series_inputs, job_series_mappings = parse_sysml_definitions(job_series_raw)
 # ==============================================================================
 tab_uc1, tab_uc2, tab_uc3, tab_summary = st.tabs([
     "📊 UC1: Ecosystem Sizing",
-    "🔄 UC2: Lifecycle Tool Types",
-    "👥 UC3: Job Series Mapping",
+    "🔄 UC2: Tool Types by Lifecycle Phase",
+    "👥 UC3: Tool Types by Job Series",
     "📑 Summary & Export"
 ])
 
