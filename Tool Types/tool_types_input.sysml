@@ -11,7 +11,7 @@ package DETECT_Input_Tool_Types {
         
         item :>> inputs {
             // Category 1: Materiel Solutions Analysis Phase (MSA)
-            attribute :>> phase_development_requirements = true;
+            attribute :>> phase_develop_requirements = true;
             attribute :>> phase_analysis_of_alternatives = true;
             attribute :>> phase_study_contracts = true;
 

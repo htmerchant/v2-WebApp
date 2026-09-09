@@ -67,7 +67,7 @@ package DETECT_Tool_Types {
          */
         item inputs {
             // Category 1: Materiel Solutions Analysis Phase (MSA)
-            attribute phase_development_requirements : Boolean default false;
+            attribute phase_develop_requirements : Boolean default false;
             attribute phase_analysis_of_alternatives : Boolean default false;
             attribute phase_study_contracts : Boolean default false;
 
@@ -109,8 +109,8 @@ package DETECT_Tool_Types {
 
         /* --- 1 MSA - Materiel Solutions Analysis Phase --- */
 
-        derived attribute development_requirements_tools : Tool_Type_e[*] =
-            if inputs.phase_development_requirements ?
+        derived attribute develop_requirements_tools : Tool_Type_e[*] =
+            if inputs.phase_develop_requirements ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.6 Mission Models',
