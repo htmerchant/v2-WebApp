@@ -1,4 +1,4 @@
-package DETECT_Lifecycle_Phases0 {
+package DETECT_Lifecycle_Phases {
     doc
     /* Use Case 2 (UC2): Identify DE ecosystem Tool Types by Lifecycle Phase.
      * Defines the logic to map user-selected lifecycle phases to required tool categories.

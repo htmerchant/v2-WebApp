@@ -1,4 +1,4 @@
-package DETECT_Criteria_List0 {
+package DETECT_Criteria_List {
     doc Acknowledgement
     /* This file contains content from DETECT model file for SysML v1.6 by Daniel Hettema, OUSD (R&E).
      * Original content is dedicated to the Public Domain.

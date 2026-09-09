@@ -1,4 +1,4 @@
-package DETECT_Job_Series0 {
+package DETECT_Job_Series {
     doc
     /* Use Case 3 (UC3): Identify DE ecosystem Tool Types by Job Series.
      * Defines the logic to map user-selected job series to required tool categories.
