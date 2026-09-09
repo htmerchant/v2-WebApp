@@ -1,4 +1,4 @@
-package DETECT_Input_Lifecycle_Phases {
+package DETECT_Input_Lifecycle_Phases0 {
     doc
     /* User Input File for UC2.
      * Instructions: Set the boolean value to 'true' if your DE ecosystem 

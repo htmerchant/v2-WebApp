@@ -1,4 +1,4 @@
-package DETECT_Input_Job_Series {
+package DETECT_Input_Job_Series0 {
     doc
     /* User Input File for UC3.
      * Instructions: Set the boolean value to 'true' if your DE ecosystem 
