@@ -1,11 +1,11 @@
-package DETECT_Input_Tool_Types {
+package DETECT_Input_Lifecycle_Phases {
     doc
     /* User Input File for UC2.
      * Instructions: Set the boolean value to 'true' if your DE ecosystem 
      * needs to support that specific lifecycle phase.
      */
 
-    private import DETECT_Tool_Types::*; 
+    private import DETECT_Lifecycle_Phases::*; 
 
     part ecosystem_tool_profile : Tool_Profile { 
         

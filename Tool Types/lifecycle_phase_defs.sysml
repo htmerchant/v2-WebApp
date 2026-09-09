@@ -1,4 +1,4 @@
-package DETECT_Tool_Types {
+package DETECT_Lifecycle_Phases {
     doc
     /* Use Case 2 (UC2): Identify DE ecosystem Tool Types by Lifecycle Phase.
      * Defines the logic to map user-selected lifecycle phases to required tool categories.
@@ -54,6 +54,15 @@ package DETECT_Tool_Types {
         '8.6 Shared Drives and Cloud Storage';
         '9 Host Platform';
         '10 Cybersecurity';
+    }
+
+    part def DETECT_user_lcp {
+        doc
+        /* A person using DETECT method to evaluate DE tool using UC2. */
+    }
+
+    use case def DETECT_uc2_Def {
+        attribute uc_status defined by status_e_lcp default status_e_lcp::Red;
     }
 
     /**
@@ -687,4 +696,15 @@ package DETECT_Tool_Types {
             else null;
     }
     
+    enum def status_e_lcp {
+        Green {
+            doc
+            /* The feature is implemented */
+        }
+        Red {
+            doc
+            /* The feature is NOT implemented */
+        }
+    }
+
 }

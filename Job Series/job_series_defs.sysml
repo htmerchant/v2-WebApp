@@ -57,6 +57,15 @@ package DETECT_Job_Series {
         '10 Cybersecurity';
     }
 
+    part def DETECT_user_jobs {
+        doc
+        /* A person using DETECT method to evaluate DE tool using UC2. */
+    }
+
+    use case def DETECT_uc3_Def {
+        attribute uc_status defined by status_e_jobs default status_e_jobs::Red;
+    }    
+
     /**
      * The Job_Series_Profile part defines the structure for capturing an organization's
      * roles and outputting the tool types they require.
@@ -430,4 +439,16 @@ package DETECT_Job_Series {
             )
             else null;
     }
+
+    enum def status_e_jobs {
+        Green {
+            doc
+            /* The feature is implemented */
+        }
+        Red {
+            doc
+            /* The feature is NOT implemented */
+        }
+    }
+
 }

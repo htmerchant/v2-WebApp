@@ -121,7 +121,7 @@ package DETECT_Sizing {
         /* A person using DETECT method to evaluate DE tool. */
     }
 
-    use case def DETECT_use_case_Def {
+    use case def DETECT_uc1_Def {
         attribute uc_status defined by status_e default status_e::Red;
     }
 
