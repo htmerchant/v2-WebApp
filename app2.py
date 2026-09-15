@@ -27,9 +27,8 @@ st.divider()
 @st.cache_data
 def parse_sysml_definitions_hierarchical(file_path_str: str):
     """
-    Parses a SysML definition file to extract:
-    1. A hierarchical dictionary of Category -> [Attributes]
-    2. A mapping of Attribute -> [Recommended Tools]
+    Parses a SysML definition file to extract a hierarchical structure of 
+    categories and their input attributes, plus all derived tool mappings.
     """
     file_path = Path(file_path_str)
     if not file_path.exists():
@@ -37,38 +36,33 @@ def parse_sysml_definitions_hierarchical(file_path_str: str):
 
     text = file_path.read_text(encoding='utf-8')
     
-    # 1. Locate the outer 'item inputs { ... }' block
+    # 1. Isolate the main 'inputs' block
     main_inputs_match = re.search(r"item\s+inputs\s*\{(.*)\}", text, re.DOTALL)
     if not main_inputs_match:
         return {}, {}
     
     main_inputs_block = main_inputs_match.group(1)
     
-    # 2. Find nested 'item "Category Name" { ... }' blocks
-    category_pattern = re.compile(r'item\s+"(.*?)"\s*\{(.*?)\}', re.DOTALL)
+    # 2. Extract nested 'item "Category Name" { ... }' blocks with robust quotes support
+    category_pattern = re.compile(r'item\s+["\'](.*?)["\']\s*\{(.*?)\}', re.DOTALL)
     category_matches = category_pattern.findall(main_inputs_block)
     
     structured_inputs = collections.OrderedDict()
     for cat_name, cat_block in category_matches:
-        attr_pattern = re.compile(r"attribute\s+([a-zA-Z0-9_]+)\s*:\s*Boolean")
-        attributes = attr_pattern.findall(cat_block)
-        structured_inputs[cat_name] = attributes
+        attribute_pattern = re.compile(r"attribute\s+([a-zA-Z0-9_]+)\s*:\s*Boolean")
+        attributes = attribute_pattern.findall(cat_block)
+        if attributes:
+            structured_inputs[cat_name.strip()] = attributes
 
-    # Fallback: If no nested categories found, treat as a single general category
-    if not structured_inputs:
-        attr_pattern = re.compile(r"attribute\s+([a-zA-Z0-9_]+)\s*:\s*Boolean")
-        structured_inputs["General"] = attr_pattern.findall(main_inputs_block)
-
-    # 3. Find all derived attributes and tool mappings
+    # 3. Resolve derived attributes to their matching mappings
     derived_pattern = re.compile(
-        r"derived\s+attribute\s+\w+\s*:\s*Tool_Type_e\[\*\]\s*=\s*if\s+inputs\.([a-zA-Z0-9_\" \(\)\&\.\-]+)\s*\?\s*\((.*?)\)\s*else\s*null;",
+        r"derived\s+attribute\s+\w+\s*:\s*Tool_Type_e\[\*\]\s*=\s*if\s+inputs\.([a-zA-Z0-9_\" \.\(\)\&\-]+)\s*\?\s*\((.*?)\)\s*else\s*null;",
         re.DOTALL
     )
     matches = derived_pattern.findall(text)
     
     tool_mappings = {}
     for input_trigger, tool_block in matches:
-        # Normalize trigger name by extracting the last attribute token
         clean_trigger = input_trigger.split('.')[-1].strip('"\t ')
         tools = re.findall(r"Tool_Type_e::'(.*?)'", tool_block)
         tool_mappings[clean_trigger] = tools
@@ -197,12 +191,14 @@ with tab_uc3:
 
     selected_roles = []
     
+    # Render each job category dynamically inside a dedicated Streamlit expander
     for category, roles in job_series_inputs_structured.items():
         with st.expander(f"👥 **{category}** ({len(roles)} roles)", expanded=True):
             num_cols_roles = 3
             cols_roles = st.columns(num_cols_roles)
             for i, role in enumerate(roles):
                 with cols_roles[i % num_cols_roles]:
+                    # Renders inputs dynamically under the correct group header
                     if st.checkbox(format_display_name(role), value=True, key=f"role_{role}"):
                         selected_roles.append(role)
     
