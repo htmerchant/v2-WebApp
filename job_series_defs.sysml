@@ -29,26 +29,29 @@ package DETECT_Job_Series {
          *
          */
         item inputs {
-            // Category 1: Engineering and Architecture Group
-            attribute role_general_engineering : Boolean default false;
-            attribute role_safety_engineering : Boolean default false;
-            attribute role_materials_engineering : Boolean default false;
-            attribute role_mechanical_engineering : Boolean default false;
-            attribute role_nuclear_engineering : Boolean default false;
-            attribute role_electrical_engineering : Boolean default false;
-            attribute role_computer_engineering : Boolean default false;
-            attribute role_aerospace_engineering : Boolean default false;
-            attribute role_chemical_engineering : Boolean default false;
-            attribute role_industrial_engineering : Boolean default false;
+            item 'Category 1: Engineering and Architecture Group' {
+                attribute role_general_engineering : Boolean default false;
+                attribute role_safety_engineering : Boolean default false;
+                attribute role_materials_engineering : Boolean default false;
+                attribute role_mechanical_engineering : Boolean default false;
+                attribute role_nuclear_engineering : Boolean default false;
+                attribute role_electrical_engineering : Boolean default false;
+                attribute role_computer_engineering : Boolean default false;
+                attribute role_aerospace_engineering : Boolean default false;
+                attribute role_chemical_engineering : Boolean default false;
+                attribute role_industrial_engineering : Boolean default false;
+            }
 
-            // Category 2: Physical Siences Group
-            attribute role_physics : Boolean default false;
-            attribute role_chemistry : Boolean default false;
+            item 'Category 2: Physical Siences Group' {
+                attribute role_physics : Boolean default false;
+                attribute role_chemistry : Boolean default false;
+            }
 
-            // Category 3: Mathematical Sciences Group
-            attribute role_general_mathematics_and_statistics : Boolean default false;
-            attribute role_operations_research : Boolean default false;
-            attribute role_computer_science : Boolean default false;
+            item 'Category 3: Mathematical Sciences Group' {
+                attribute role_general_mathematics_and_statistics : Boolean default false;
+                attribute role_operations_research : Boolean default false;
+                attribute role_computer_science : Boolean default false;
+            }
         }
 
         /* --- MODEL OUTPUTS --- */
@@ -56,7 +59,7 @@ package DETECT_Job_Series {
         /* --- 1 - Engineering and Architecture Group --- */
 
         derived attribute general_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_general_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_general_engineering ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -89,7 +92,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute safety_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_safety_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_safety_engineering ?
             (
                 Tool_Type_e::'2.3 Finite Element Analysis (FEA)',
                 Tool_Type_e::'2.5 Dynamic Simulations',
@@ -108,7 +111,7 @@ package DETECT_Job_Series {
             else null;
             
         derived attribute materials_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_materials_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_materials_engineering ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -126,7 +129,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute mechanical_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_mechanical_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_mechanical_engineering ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -150,7 +153,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute nuclear_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_nuclear_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_nuclear_engineering ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
@@ -170,7 +173,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute electrical_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_electrical_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_electrical_engineering ?
             (
                 Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -191,7 +194,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute computer_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_computer_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_computer_engineering ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.5 Dynamic Simulations',
@@ -213,7 +216,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute aerospace_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_aerospace_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_aerospace_engineering ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
@@ -239,7 +242,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute chemical_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_chemical_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_chemical_engineering ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
@@ -258,7 +261,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute industrial_engineering_tools : Tool_Type_e[*] =
-            if inputs.role_industrial_engineering ?
+            if inputs.'Category 1: Engineering and Architecture Group'.role_industrial_engineering ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.5 Dynamic Simulations',
@@ -287,7 +290,7 @@ package DETECT_Job_Series {
         /* --- 2 - Physical Sciences Group --- */
 
         derived attribute physics_tools : Tool_Type_e[*] =
-            if inputs.role_physics ?
+            if inputs.'Category 2: Physical Siences Group'.role_physics ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.2 Computational Fluid Dynamics (CFD)',
@@ -309,7 +312,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute chemistry_tools : Tool_Type_e[*] =
-            if inputs.role_chemistry ?
+            if inputs.'Category 2: Physical Siences Group'.role_chemistry ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.5 Dynamic Simulations',
@@ -328,7 +331,7 @@ package DETECT_Job_Series {
         /* --- 3 - Mathematical Sciences Group --- */
 
         derived attribute general_math_and_stats_tools : Tool_Type_e[*] =
-            if inputs.role_general_mathematics_and_statistics ?
+            if inputs.'Category 3: Mathematical Sciences Group'.role_general_mathematics_and_statistics ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.5 Dynamic Simulations',
@@ -348,7 +351,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute ops_research_tools : Tool_Type_e[*] =
-            if inputs.role_operations_research ?
+            if inputs.'Category 3: Mathematical Sciences Group'.role_operations_research ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.5 Dynamic Simulations',
@@ -371,7 +374,7 @@ package DETECT_Job_Series {
             else null;
 
         derived attribute compsci_tools : Tool_Type_e[*] =
-            if inputs.role_computer_science ?
+            if inputs.'Category 3: Mathematical Sciences Group'.role_computer_science ?
             (
                 Tool_Type_e::'4.1 Integrated Development Environments (IDEs)',
                 Tool_Type_e::'4.2 Version Control Systems',
