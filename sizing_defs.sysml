@@ -85,8 +85,8 @@ package DETECT_Sizing {
         }
         enum def LifecyclePhases_e specializes Attr_with_value {
             '1-2' { redefines value = 1; } // AMBIGUITY!!! (when the number of lifecycle phases ecosystem supports is '2')
-            '2 to 3' { redefines value = 2; } // AMBIGUITY!!! (when the number of lifecycle phases ecosystem supports is '2')
-            All { redefines value = 3; }
+            '3-4' { redefines value = 2; } // AMBIGUITY!!! (when the number of lifecycle phases ecosystem supports is '2')
+            'All 5' { redefines value = 3; }
             TBD { redefines value = 0; } // selection placeholder;
         }
         enum def ProjectDeliverables_e specializes Attr_with_value {
