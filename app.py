@@ -113,7 +113,7 @@ with tab_uc1:
         "number_of_partners": ["0 / Regional (Small)", "1-5 (Medium)", ">5 (Large)"],
         "engineering_domains": ["<=2 (Small)", ">2 (Medium)", ">5 (Large)"],
         "geographic_locations": ["1 (Small)", "2-5 (Medium)", ">5 (Large)"],
-        "lifecycle_phases": ["1-2 (Small)", "2 to 3 (Medium)", "All Phases (Large)"],
+        "lifecycle_phases": ["1-2 (Small)", "3-4 (Medium)", "All 5 (Large)"],
         "automation": ["Manual / Low Automation", "Moderate / Adoption of Autonomous Platforms", "Autonomous / Full Automation"],
         "enclaves": ["1-10 Enclaves", "11-50 Enclaves", "50+ Enclaves"],
         "tenants": ["Single App, Single DB", "Multi App, Single DB", "Multi App, Multi DB"],
