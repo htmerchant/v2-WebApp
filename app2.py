@@ -84,14 +84,14 @@ def format_display_name(raw_name: str) -> str:
 # ==============================================================================
 
 BASE_PATH = Path("model_files")
-LIFECYCLE_DEFS_PATH = BASE_PATH / "lifecycle_phase_defs.txt"
-JOB_SERIES_DEFS_PATH = BASE_PATH / "job_series_defs.txt"
+LIFECYCLE_DEFS_PATH = BASE_PATH / "lifecycle_phase_defs.sysml"
+JOB_SERIES_DEFS_PATH = BASE_PATH / "job_series_defs.sysml"
 
 # Gracefully support root directory placement as fallback
 if not LIFECYCLE_DEFS_PATH.exists():
-    LIFECYCLE_DEFS_PATH = Path("lifecycle_phase_defs.txt")
+    LIFECYCLE_DEFS_PATH = Path("lifecycle_phase_defs.sysml")
 if not JOB_SERIES_DEFS_PATH.exists():
-    JOB_SERIES_DEFS_PATH = Path("job_series_defs.txt")
+    JOB_SERIES_DEFS_PATH = Path("job_series_defs.sysml")
 
 lifecycle_inputs_structured, lifecycle_mappings = parse_sysml_definitions_hierarchical(str(LIFECYCLE_DEFS_PATH))
 job_series_inputs_structured, job_series_mappings = parse_sysml_definitions_hierarchical(str(JOB_SERIES_DEFS_PATH))
