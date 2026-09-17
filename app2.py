@@ -14,7 +14,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.title("🛡️ DETECT (Digital Engineering Tool Evaluation Criteria Template) Ecosystem Model")
+st.title("🛡️ DETECTv2 Ecosystem Model (Beta)")
 st.markdown("""
 This web application simulates the **SysML v2 DETECT v2** model. It dynamically parses the underlying SysML definition files to provide an organized, categorized user experience across all three primary use cases.
 """)
