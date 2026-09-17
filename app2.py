@@ -165,7 +165,7 @@ with tab_uc2:
                         selected_phases.append(phase)
     
     st.divider()
-    st.write("### 📋 Recommended Tool Types Grouped by Lifecycle Phase / Category")
+    st.write("### 📋 Identify Tool Types Grouped by Lifecycle Phase")
     
     if selected_phases:
         phase_table_rows = []
@@ -186,7 +186,7 @@ with tab_uc2:
 # TAB 3: UC3 JOB SERIES MAPPING (Categorized with Expanders)
 # ------------------------------------------------------------------------------
 with tab_uc3:
-    st.subheader("Identify Tools by Job Series")
+    st.subheader("Identify Tool Types by Job Series")
     st.write("Select active occupational roles, organized by job series category:")
 
     selected_roles = []
