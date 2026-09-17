@@ -8,13 +8,13 @@ import collections
 # 1. APPLICATION SETUP & CONFIGURATION
 # ==============================================================================
 st.set_page_config(
-    page_title="DETECT v2 Decision Support Tool",
+    page_title="Digital Engineering Decision Support Tool",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
 
-st.title("🛡️ DETECT v2: Digital Engineering Ecosystem Model")
+st.title("🛡️ DETECT (Digital Engineering Tool Evaluation Criteria Template) Ecosystem Model")
 st.markdown("""
 This web application simulates the **SysML v2 DETECT v2** model. It dynamically parses the underlying SysML definition files to provide an organized, categorized user experience across all three primary use cases.
 """)
@@ -98,9 +98,9 @@ if lifecycle_inputs_structured is None or job_series_inputs_structured is None:
 # 4. USER INTERFACE TABS
 # ==============================================================================
 tab_uc1, tab_uc2, tab_uc3, tab_summary = st.tabs([
-    "📊 UC1: Ecosystem Sizing",
-    "🔄 UC2: Lifecycle Tool Types",
-    "👥 UC3: Job Series Mapping",
+    "📊 Ecosystem Sizing",
+    "🔄 Tools by Lifecycle Phase",
+    "👥 Tools by Job Series",
     "📑 Summary & Export"
 ])
 
@@ -108,7 +108,7 @@ tab_uc1, tab_uc2, tab_uc3, tab_summary = st.tabs([
 # TAB 1: UC1 SIZING
 # ------------------------------------------------------------------------------
 with tab_uc1:
-    st.subheader("UC1: Determine DE Ecosystem Sizing")
+    st.subheader("Determine DE Ecosystem Sizing")
     st.write("Configure the 10 core architectural parameters to calculate the system size:")
     
     sizing_options = {
@@ -150,13 +150,13 @@ with tab_uc1:
 # TAB 2: UC2 LIFECYCLE TOOL TYPES (Categorized with Expanders)
 # ------------------------------------------------------------------------------
 with tab_uc2:
-    st.subheader("UC2: Identify Tool Types by Lifecycle Phase")
-    st.write("Select active lifecycle phases, organized by phase category:")
+    st.subheader("Identify Tool Types by Lifecycle Phase / Category")
+    st.write("Select active cateories, organized by lifecycle phase:")
 
     selected_phases = []
     
     for category, phases in lifecycle_inputs_structured.items():
-        with st.expander(f"📁 **{category}** ({len(phases)} areas)", expanded=True):
+        with st.expander(f"📁 **{category}** ({len(phases)} categories)", expanded=True):
             num_cols = 3
             cols = st.columns(num_cols)
             for i, phase in enumerate(phases):
@@ -165,7 +165,7 @@ with tab_uc2:
                         selected_phases.append(phase)
     
     st.divider()
-    st.write("### 📋 Recommended Tool Types Grouped by Lifecycle Phase")
+    st.write("### 📋 Recommended Tool Types Grouped by Lifecycle Phase / Category")
     
     if selected_phases:
         phase_table_rows = []
@@ -173,8 +173,8 @@ with tab_uc2:
             tools = lifecycle_mappings.get(p, [])
             cat_found = next((cat for cat, p_list in lifecycle_inputs_structured.items() if p in p_list), "General")
             phase_table_rows.append({
-                "Category": cat_found,
-                "Lifecycle Phase": format_display_name(p),
+                "Lifecycle Phase": cat_found,
+                "Category": format_display_name(p),
                 "Tool Count": len(tools),
                 "Recommended Tool Categories": ", ".join(tools) if tools else "None specified"
             })
@@ -186,7 +186,7 @@ with tab_uc2:
 # TAB 3: UC3 JOB SERIES MAPPING (Categorized with Expanders)
 # ------------------------------------------------------------------------------
 with tab_uc3:
-    st.subheader("UC3: Identify Tools by Job Series")
+    st.subheader("Identify Tools by Job Series")
     st.write("Select active occupational roles, organized by job series category:")
 
     selected_roles = []
@@ -203,7 +203,7 @@ with tab_uc3:
                         selected_roles.append(role)
     
     st.divider()
-    st.write("### 📋 Recommended Tool Types Grouped by Job Series")
+    st.write("### 📋 Recommended Tool Types Grouped by Job Series / Role")
     
     if selected_roles:
         role_table_rows = []
@@ -211,8 +211,8 @@ with tab_uc3:
             tools = job_series_mappings.get(r, [])
             cat_found = next((cat for cat, r_list in job_series_inputs_structured.items() if r in r_list), "General")
             role_table_rows.append({
-                "Category": cat_found,
-                "Job Series / Role": format_display_name(r),
+                "Job Series Category": cat_found,
+                "Role": format_display_name(r),
                 "Tool Count": len(tools),
                 "Recommended Tool Categories": ", ".join(tools) if tools else "None specified"
             })
