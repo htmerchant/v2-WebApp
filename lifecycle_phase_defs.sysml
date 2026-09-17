@@ -21,15 +21,6 @@ package DETECT_Lifecycle_Phases {
      * lifecycle phase needs and outputting the mapped tools.
      */
     part def Tool_Profile {
-        
-        part lifecycle_categories {
-            attribute 'Category 1: Materiel Solutions Analysis Phase (MSA)';
-            attribute 'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)';
-            attribute 'Category 3: Engineering and Manufacturing Development Phase (EMD)';
-            attribute 'Category 4: Production and Deployment Phase (P&D)';
-            attribute 'Category 5: Operation and Support Phase (O&S)';
-            attribute 'Category 6: All Phases';
-        }
 
         /**
          * USER INPUTS: 6 Lifecycle Categories with Boolean selections for phases.
@@ -38,13 +29,13 @@ package DETECT_Lifecycle_Phases {
          *
          */
         item inputs {
-            item 'Category 1: Materiel Solutions Analysis Phase (MSA)' {
+            item 'Materiel Solutions Analysis Phase (MSA)' {
                 attribute phase_requirement_development : Boolean default false;
                 attribute phase_analysis_of_alternatives : Boolean default false;
                 attribute phase_contract_studies : Boolean default false;
             }
 
-            item 'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)' {
+            item 'Technology Maturity and Risk Reduction Phase (TMRR)' {
                 attribute phase_mature_requirements : Boolean default false;
                 attribute phase_prototype_contracts : Boolean default false;
                 attribute phase_prototyping : Boolean default false;
@@ -53,14 +44,14 @@ package DETECT_Lifecycle_Phases {
                 attribute phase_RFP_release_decision_development : Boolean default false;
             }
 
-            item 'Category 3: Engineering and Manufacturing Development Phase (EMD)' {
+            item 'Engineering and Manufacturing Development Phase (EMD)' {
                 attribute phase_development_contracts : Boolean default false;
                 attribute phase_complete_system_design : Boolean default false;
                 attribute phase_system_development : Boolean default false;
                 attribute phase_developmental_testing : Boolean default false;
             }
 
-            item 'Category 4: Production and Deployment Phase (P&D)' {
+            item 'Production and Deployment Phase (P&D)' {
                 attribute phase_production_contracts : Boolean default false;
                 attribute phase_low_rate_initial_production : Boolean default false;
                 attribute phase_operational_testing : Boolean default false;
@@ -69,12 +60,12 @@ package DETECT_Lifecycle_Phases {
                 attribute phase_full_rate_production_deployment : Boolean default false;
             }
 
-            item 'Category 5: Operation and Support Phase (O&S)' {
+            item 'Operation and Support Phase (O&S)' {
                 attribute phase_sustainment_contracts : Boolean default false;
                 attribute phase_system_sustainment : Boolean default false;
             }
 
-            item 'Category 6: All Phases' {
+            item 'All Phases' {
                 attribute phase_strategy_development : Boolean default false;
                 attribute phase_technical_reviews : Boolean default false;
                 attribute phase_cost_estimation_and_affordability : Boolean default false;
@@ -87,7 +78,7 @@ package DETECT_Lifecycle_Phases {
         /* --- 1 MSA - Materiel Solutions Analysis Phase --- */
 
         derived attribute develop_requirements_tools : Tool_Type_e[*] =
-            if inputs.'Category 1: Materiel Solutions Analysis Phase (MSA)'.phase_requirement_development ?
+            if inputs.'Materiel Solutions Analysis Phase (MSA)'.phase_requirement_development ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.6 Mission Models',
@@ -108,7 +99,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute analysis_of_alternatives_tools : Tool_Type_e[*] =
-            if inputs.'Category 1: Materiel Solutions Analysis Phase (MSA)'.phase_analysis_of_alternatives ?
+            if inputs.'Materiel Solutions Analysis Phase (MSA)'.phase_analysis_of_alternatives ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.6 Mission Models',
@@ -131,7 +122,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute study_contracts_tools : Tool_Type_e[*] =
-            if inputs.'Category 1: Materiel Solutions Analysis Phase (MSA)'.phase_contract_studies ?
+            if inputs.'Materiel Solutions Analysis Phase (MSA)'.phase_contract_studies ?
             (
                 Tool_Type_e::'5.3 Data Persistence',
                 Tool_Type_e::'5.4 Digital Thread',
@@ -149,7 +140,7 @@ package DETECT_Lifecycle_Phases {
         /* --- 2 TMRR - Technology Maturity and Risk Reduction Phase --- */
 
         derived attribute mature_rqts_tools : Tool_Type_e[*] =
-            if inputs.'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)'.phase_mature_requirements ?
+            if inputs.'Technology Maturity and Risk Reduction Phase (TMRR)'.phase_mature_requirements ?
             (
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
                 Tool_Type_e::'2.6 Mission Models',
@@ -172,7 +163,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute proto_contr_tools : Tool_Type_e[*] =
-            if inputs.'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)'.phase_prototype_contracts ?
+            if inputs.'Technology Maturity and Risk Reduction Phase (TMRR)'.phase_prototype_contracts ?
             (
                 Tool_Type_e::'5.3 Data Persistence',
                 Tool_Type_e::'5.4 Digital Thread',
@@ -188,7 +179,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute prototyping_tools : Tool_Type_e[*] =
-            if inputs.'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)'.phase_prototyping ?
+            if inputs.'Technology Maturity and Risk Reduction Phase (TMRR)'.phase_prototyping ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
                 Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
@@ -222,7 +213,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute dev_prel_design_tools : Tool_Type_e[*] =
-            if inputs.'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)'.phase_preliminary_design_development ?
+            if inputs.'Technology Maturity and Risk Reduction Phase (TMRR)'.phase_preliminary_design_development ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
                 Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
@@ -256,7 +247,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute cdd_validation_tools : Tool_Type_e[*] =
-            if inputs.'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)'.phase_CDD_validation ?
+            if inputs.'Technology Maturity and Risk Reduction Phase (TMRR)'.phase_CDD_validation ?
             (
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
                 Tool_Type_e::'5.2 Data Integration',
@@ -274,7 +265,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute dev_rfp_dec_tools : Tool_Type_e[*] =
-            if inputs.'Category 2: Technology Maturity and Risk Reduction Phase (TMRR)'.phase_RFP_release_decision_development ?
+            if inputs.'Technology Maturity and Risk Reduction Phase (TMRR)'.phase_RFP_release_decision_development ?
             (
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
                 Tool_Type_e::'5.2 Data Integration',
@@ -294,7 +285,7 @@ package DETECT_Lifecycle_Phases {
         /* --- 3 EMD - Engineering and Manufacturing Development Phase --- */
 
         derived attribute dev_contr_tools : Tool_Type_e[*] =
-            if inputs.'Category 3: Engineering and Manufacturing Development Phase (EMD)'.phase_development_contracts ?
+            if inputs.'Engineering and Manufacturing Development Phase (EMD)'.phase_development_contracts ?
             (
                 Tool_Type_e::'5.3 Data Persistence',
                 Tool_Type_e::'5.4 Digital Thread',
@@ -310,7 +301,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute sys_design_tools : Tool_Type_e[*] =
-            if inputs.'Category 3: Engineering and Manufacturing Development Phase (EMD)'.phase_complete_system_design ?
+            if inputs.'Engineering and Manufacturing Development Phase (EMD)'.phase_complete_system_design ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
                 Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
@@ -349,7 +340,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute develop_sys_tools : Tool_Type_e[*] =
-            if inputs.'Category 3: Engineering and Manufacturing Development Phase (EMD)'.phase_system_development ?
+            if inputs.'Engineering and Manufacturing Development Phase (EMD)'.phase_system_development ?
             (
                 Tool_Type_e::'1.1 Computer Aided Design (CAD)',
                 Tool_Type_e::'1.2 Electrical computer-aided design (ECAD)',
@@ -388,7 +379,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute dev_testing_tools : Tool_Type_e[*] =
-            if inputs.'Category 3: Engineering and Manufacturing Development Phase (EMD)'.phase_developmental_testing ?
+            if inputs.'Engineering and Manufacturing Development Phase (EMD)'.phase_developmental_testing ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -423,7 +414,7 @@ package DETECT_Lifecycle_Phases {
         /* --- 4 P&D - Production and Deployment Phase --- */
 
         derived attribute prod_contr_tools : Tool_Type_e[*] =
-            if inputs.'Category 4: Production and Deployment Phase (P&D)'.phase_production_contracts ?
+            if inputs.'Production and Deployment Phase (P&D)'.phase_production_contracts ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'5.3 Data Persistence',
@@ -440,7 +431,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute lr_init_prod_tools : Tool_Type_e[*] =
-            if inputs.'Category 4: Production and Deployment Phase (P&D)'.phase_low_rate_initial_production ?
+            if inputs.'Production and Deployment Phase (P&D)'.phase_low_rate_initial_production ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -467,7 +458,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute operational_test_tools : Tool_Type_e[*] =
-            if inputs.'Category 4: Production and Deployment Phase (P&D)'.phase_operational_testing ?
+            if inputs.'Production and Deployment Phase (P&D)'.phase_operational_testing ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'2.1 Low Fidelity Simulations',
@@ -494,7 +485,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute frp_dec_tools : Tool_Type_e[*] =
-            if inputs.'Category 4: Production and Deployment Phase (P&D)'.phase_full_rate_production_decision ?
+            if inputs.'Production and Deployment Phase (P&D)'.phase_full_rate_production_decision ?
             (
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
                 Tool_Type_e::'5.2 Data Integration',
@@ -512,7 +503,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute fr_tools : Tool_Type_e[*] =
-            if inputs.'Category 4: Production and Deployment Phase (P&D)'.phase_full_rate_production ?
+            if inputs.'Production and Deployment Phase (P&D)'.phase_full_rate_production ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
@@ -537,7 +528,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute prod_deployment_tools : Tool_Type_e[*] =
-            if inputs.'Category 4: Production and Deployment Phase (P&D)'.phase_full_rate_production_deployment ?
+            if inputs.'Production and Deployment Phase (P&D)'.phase_full_rate_production_deployment ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
@@ -565,7 +556,7 @@ package DETECT_Lifecycle_Phases {
         /* --- 5 O&S - Operations and Support Phase --- */
 
         derived attribute sustainment_contr_tools : Tool_Type_e[*] =
-            if inputs.'Category 5: Operation and Support Phase (O&S)'.phase_sustainment_contracts ?
+            if inputs.'Operation and Support Phase (O&S)'.phase_sustainment_contracts ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'5.3 Data Persistence',
@@ -582,7 +573,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute sustain_sys_tools : Tool_Type_e[*] =
-            if inputs.'Category 5: Operation and Support Phase (O&S)'.phase_system_sustainment ?
+            if inputs.'Operation and Support Phase (O&S)'.phase_system_sustainment ?
             (
                 Tool_Type_e::'1.3 Product Lifecycle Management (PLM)',
                 Tool_Type_e::'5.1 Data Analytics and Visualization',
@@ -607,7 +598,7 @@ package DETECT_Lifecycle_Phases {
         /* --- 6 All Phases --- */
 
         derived attribute strategies_tools : Tool_Type_e[*] =
-            if inputs.'Category 6: All Phases'.phase_strategy_development ?
+            if inputs.'All Phases'.phase_strategy_development ?
             (
                 Tool_Type_e::'3.1 Requirements Management Tools',
                 Tool_Type_e::'3.2 Architecture Tools',
@@ -622,7 +613,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute tr_tools : Tool_Type_e[*] =
-            if inputs.'Category 6: All Phases'.phase_technical_reviews ?
+            if inputs.'All Phases'.phase_technical_reviews ?
             (
                 Tool_Type_e::'3.1 Requirements Management Tools',
                 Tool_Type_e::'3.2 Architecture Tools',
@@ -637,7 +628,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute cost_estimation_and_affordability_tools : Tool_Type_e[*] =
-            if inputs.'Category 6: All Phases'.phase_cost_estimation_and_affordability ?
+            if inputs.'All Phases'.phase_cost_estimation_and_affordability ?
             (
                 Tool_Type_e::'3.1 Requirements Management Tools',
                 Tool_Type_e::'3.2 Architecture Tools',
@@ -652,7 +643,7 @@ package DETECT_Lifecycle_Phases {
             else null;
 
         derived attribute program_management_tools : Tool_Type_e[*] =
-            if inputs.'Category 6: All Phases'.phase_program_management ?
+            if inputs.'All Phases'.phase_program_management ?
             (
                 Tool_Type_e::'8.1 Word Processing and Document Collaboration',
                 Tool_Type_e::'8.2 Presentation Software',
