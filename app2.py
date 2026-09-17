@@ -156,7 +156,7 @@ with tab_uc2:
     selected_phases = []
     
     for category, phases in lifecycle_inputs_structured.items():
-        with st.expander(f"📁 **{category}** ({len(phases)} phases)", expanded=True):
+        with st.expander(f"📁 **{category}** ({len(phases)} areas)", expanded=True):
             num_cols = 3
             cols = st.columns(num_cols)
             for i, phase in enumerate(phases):
