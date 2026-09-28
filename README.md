@@ -22,11 +22,20 @@ Syside needs a Pro licence as soon as it is imported, so all three commands need
 
 For a trial licence, see [syside.sensmetry.com](https://syside.sensmetry.com). Keep the licence out of this repository; `.gitignore` excludes `*.lic`.
 
-To work in the VS Code dev container instead, set `SYSIDE_LICENSE_KEY` on your machine before opening the folder in the container. `.devcontainer/` passes it through, and installs uv, the dependencies and the Syside extension.
+Running it this way needs no Docker.
 
 The evaluator loads every `.sysml` file in `model/`.
 
 The command line path reads your answers out of the model files themselves: set the sizing attributes in `model/sizing_input.sysml` away from `TBD`, and set the boolean flags in `model/lifecycle_phase_input.sysml` and `model/job_series_input.sysml`. The webapp writes the same answers into an in-memory copy of the model instead, so it leaves the files alone.
+
+### Optionally, in a dev container
+
+`.devcontainer/` describes a VS Code dev container with Python, uv, the dependencies and the Syside extension installed. Using it is optional, and it needs two things the steps above do not:
+
+1. Docker. On Windows or macOS, install [Docker Desktop](https://docs.docker.com/desktop/); on Windows it also needs WSL 2, which its installer sets up. On Linux, install [Docker Engine](https://docs.docker.com/engine/install/). Docker Desktop requires a paid subscription for use in larger organisations and in government; see [its licence terms](https://docs.docker.com/subscription/desktop-license/).
+2. The VS Code [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
+
+Set `SYSIDE_LICENSE_KEY` on your machine, start VS Code from an environment where it is set, then run **Dev Containers: Reopen in Container**. The container reads the key from that environment.
 
 ## What it produces
 
@@ -48,6 +57,8 @@ The tool type files are named after the use case's short name in the model, so a
 - `tests/` — tests over the evaluator, run against the models in `model/`.
 
 ## Container image
+
+This section is only for deploying the webapp; running it locally does not need it.
 
 ```sh
 docker build -t detect-webapp .
