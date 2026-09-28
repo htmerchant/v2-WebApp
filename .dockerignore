@@ -1,0 +1,21 @@
+.dockerignore
+.gitignore
+.gitattributes
+.git
+.devcontainer
+
+__pycache__
+.venv
+.mypy_cache
+.ruff_cache
+.pytest_cache
+
+Dockerfile
+README.md
+requirements.txt
+tests
+
+Output
+
+# Never copy a licence into the image. Mount it at runtime instead.
+*.lic

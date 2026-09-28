@@ -12,7 +12,7 @@ dependencies = [
 
 [tool.uv]
 # A flat application, not an importable package: detect.py and webapp_main.py are
-# modules in this directory. This keeps uv from trying to build and install it.
+# modules at the repository root. This keeps uv from trying to build and install it.
 package = false
 
 [dependency-groups]

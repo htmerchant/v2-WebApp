@@ -1,7 +1,7 @@
 """Tests for the DETECT v2 evaluator.
 
-These run against the model files in `detect.MODEL_DIR`, by default the repository root.
-They are skipped when that directory holds no model files.
+These run against the model files in `model/`. They are skipped when that directory
+holds no model files.
 """
 
 import os
@@ -14,7 +14,7 @@ from detect import Ecosystem, EntryKind, Profile, UseCase
 
 pytestmark = pytest.mark.skipif(
     not os.path.isdir(detect.MODEL_DIR) or not detect.model_files(),
-    reason="no model files in the model directory",
+    reason="no model files in model/",
 )
 
 

@@ -3,8 +3,8 @@
 This script depends on Syside Automator (https://docs.sensmetry.com/automator/install.html).
 
 Running the script evaluates every use case declared in the models against the input
-files in the model directory and writes one CSV per output into the `Output` folder. See
-the README for the use cases and their inputs.
+files in `model/` and writes one CSV per output into the `Output` folder. See the README
+ for the use cases and their inputs.
 
 The model is parsed once into the types below, whose constructors check its shape and
 raise `ValueError` naming what is missing. Everything after that evaluates the parsed
@@ -20,9 +20,7 @@ from typing import NewType
 
 import syside
 
-# The models are the .sysml files at the repository root, one level above this directory.
-# DETECT_MODEL_DIR overrides it, as the container image does.
-MODEL_DIR = os.environ.get("DETECT_MODEL_DIR", "..")
+MODEL_DIR = "model"
 OUTPUT_DIR = "Output"
 
 TOOL_TYPE_ENUMERATION = "Tool_Type_e"
@@ -51,7 +49,7 @@ def model_files(model_dir: str = MODEL_DIR) -> list[str]:
 
 
 def parse_model(files: Sequence[str] | None = None) -> syside.Model:
-    """Load the model from the given files, or from every model in the model directory.
+    """Load the model from the given files, or from every model in `model/`.
 
     Raises:
         ValueError: If the model does not load cleanly
