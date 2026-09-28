@@ -6,6 +6,13 @@ The models are the source of truth. Use cases, questions, answers, help text, li
 
 ## Running it
 
+Syside needs a Pro licence as soon as it is imported, so each `uv run` command below needs one. Provide it through one of these environment variables:
+
+- `SYSIDE_LICENSE_KEY`, holding the key itself
+- `SYSIDE_LICENSE_FILE`, holding the path to a `.lic` certificate
+
+For a trial licence, see [syside.sensmetry.com](https://syside.sensmetry.com). Keep the licence out of this repository; `.gitignore` excludes `*.lic`.
+
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
 
 ```sh
@@ -14,13 +21,6 @@ uv run python webapp_main.py      # webapp at http://localhost:8080, or on $PORT
 uv run python detect.py           # command line, writes CSVs to Output/
 uv run python -m pytest tests/    # tests
 ```
-
-Syside needs a Pro licence as soon as it is imported, so all three commands need one. Provide it through one of these environment variables:
-
-- `SYSIDE_LICENSE_KEY`, holding the key itself
-- `SYSIDE_LICENSE_FILE`, holding the path to a `.lic` certificate
-
-For a trial licence, see [syside.sensmetry.com](https://syside.sensmetry.com). Keep the licence out of this repository; `.gitignore` excludes `*.lic`.
 
 Running it this way needs no Docker.
 
