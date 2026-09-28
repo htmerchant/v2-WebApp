@@ -1,6 +1,6 @@
 # DETECT v2
 
-A [NiceGUI](https://nicegui.io/) webapp and command line evaluator over the DETECT v2 SysML v2 models in `model/`, using [Syside Automator](https://docs.sensmetry.com/automator/). It covers the three use cases the models declare: ecosystem sizing, tool types by lifecycle phase, and tool types by job series.
+A [NiceGUI](https://nicegui.io/) webapp and command line evaluator over the DETECT v2 SysML v2 models in `model/`, using [Syside Automator](https://docs.sensmetry.com/automator/).
 
 The models are the source of truth. Use cases, questions, answers, help text, lifecycle phases, job series, criteria, requirements, their ordering and tool mappings are all read out of the models, so extending DETECT means editing the models rather than the Python.
 
@@ -11,7 +11,7 @@ Syside needs a Pro licence as soon as it is imported, so each `uv run` command b
 - `SYSIDE_LICENSE_KEY`, holding the key itself
 - `SYSIDE_LICENSE_FILE`, holding the path to a `.lic` certificate
 
-For a trial licence, see [syside.sensmetry.com](https://syside.sensmetry.com). Keep the licence out of this repository; `.gitignore` excludes `*.lic`.
+Keep the licence out of this repository; `.gitignore` excludes `*.lic`.
 
 Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
 
