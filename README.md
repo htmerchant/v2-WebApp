@@ -6,14 +6,23 @@ The models are the source of truth. Use cases, questions, answers, help text, li
 
 ## Running it
 
+Install [uv](https://docs.astral.sh/uv/getting-started/installation/), then:
+
 ```sh
 uv sync
-uv run python webapp_main.py      # webapp on $PORT, default 8080
+uv run python webapp_main.py      # webapp at http://localhost:8080, or on $PORT
 uv run python detect.py           # command line, writes CSVs to Output/
 uv run python -m pytest tests/    # tests
 ```
 
-Both entry points need a Syside Pro licence. For a trial, see [syside.sensmetry.com](https://syside.sensmetry.com).
+Syside needs a Pro licence as soon as it is imported, so all three commands need one. Provide it through one of these environment variables:
+
+- `SYSIDE_LICENSE_KEY`, holding the key itself
+- `SYSIDE_LICENSE_FILE`, holding the path to a `.lic` certificate
+
+For a trial licence, see [syside.sensmetry.com](https://syside.sensmetry.com). Keep the licence out of this repository; `.gitignore` excludes `*.lic`.
+
+To work in the VS Code dev container instead, set `SYSIDE_LICENSE_KEY` on your machine before opening the folder in the container. `.devcontainer/` passes it through, and installs uv, the dependencies and the Syside extension.
 
 The evaluator loads every `.sysml` file in `model/`.
 
