@@ -167,7 +167,7 @@ def create_footer() -> None:
         "w-full items-center justify-center px-4 py-0.5 mt-6 border-t border-gray-200 gap-1"
     ):
         ui.markdown(f"\nWebapp version {WEBAPP_VERSION}").classes("text-sm text-gray-600")
-        ui.markdown("\nCopyright © 2025 Sensmetry").classes("text-sm text-gray-600")
+        ui.markdown("\nCopyright © 2026 Sensmetry").classes("text-sm text-gray-600")
         ui.image("images/Sensmetry_logo-02.svg").classes("max-w-[200px]").props('alt="Sensmetry"')
 
 
